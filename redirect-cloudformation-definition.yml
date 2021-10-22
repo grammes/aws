@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: "Route53 redirect from gramm.es to grammes.github.io"
+
+Resources:
+
+  # https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+  Redirect:
+    Type: "AWS::Route53::RecordSet"
+    Properties:
+      Name: ""
+      Type: "A"
+      TTL: 3600 # seconds, 3600s = 1h
+      ResourceRecords: [
+          "185.199.108.153",
+          "185.199.109.153",
+          "185.199.110.153",
+          "185.199.111.153",
+      ]
+      HostedZoneId: "to be done"

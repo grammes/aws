@@ -1,0 +1,41 @@
+name: Setup DNS Redirect
+
+# see https://github.com/aws-samples/aws-starter-react-for-github-actions/blob/master/.github/workflows/deploy.yaml
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    inputs:
+      region:
+        description: 'AWS Region to deploy to'
+        required: true
+        default: 'eu-central-1'
+
+jobs:
+  createstack:
+    name: Create a stack according to a cloudformation yaml file
+    runs-on: ubuntu-latest
+    outputs:
+      env-name: ${{ steps.env-name.outputs.environment }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Configure AWS credentials
+      id: creds
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ github.event.inputs.region }}
+
+    - name: Deploy to AWS CloudFormation
+      id: cloudformation-stack
+      # https://github.com/aws-actions/aws-cloudformation-github-deploy/blob/master/action.yml
+      uses: aws-actions/aws-cloudformation-github-deploy@v1
+      with:
+        name: deploy_redirect-cloudformation-definition
+        template: redirect-cloudformation-definition.yaml
+        no-fail-on-empty-changeset: "1"
+        #parameter-overrides: "MyParam1=myValue,MyParam2=${{ secrets.MY_SECRET_VALUE }}"
