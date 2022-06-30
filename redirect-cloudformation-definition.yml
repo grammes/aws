@@ -36,4 +36,4 @@ Resources:
       Type: CNAME
       TTL: 3600 # seconds, 3600s = 1h
       ResourceRecords:
-        - public-ira-downloads.s3.eu-central-1.amazonaws.com
+        - ira.gramm.es.s3.eu-central-1.amazonaws.com
