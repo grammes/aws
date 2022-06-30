@@ -39,6 +39,6 @@ jobs:
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
         name: deploy_redirect-cloudformation-definition
-        template: ${{ GITHUB_WORKSPACE }}/redirect-cloudformation-definition.yaml
+        template: redirect-cloudformation-definition.yaml
         no-fail-on-empty-changeset: "1"
         #parameter-overrides: "MyParam1=myValue,MyParam2=${{ secrets.MY_SECRET_VALUE }}"
