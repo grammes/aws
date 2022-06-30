@@ -6,15 +6,16 @@ Resources:
 
   # https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
   Redirect:
-    Type: "AWS::Route53::RecordSet"
+    Type: AWS::Route53::RecordSet
     Properties:
-      Name: ""
-      Type: "A"
+      HostedZoneId: Z1045406BOC52TC75Q5N
+      Name: gramm.es
+      Type: A
       TTL: 3600 # seconds, 3600s = 1h
-      ResourceRecords: [
-          "185.199.108.153",
-          "185.199.109.153",
-          "185.199.110.153",
-          "185.199.111.153",
+      ResourceRecords:
+          - 185.199.108.153
+          - 185.199.109.153
+          - 185.199.110.153
+          - 185.199.111.153
       ]
-      HostedZoneId: "to be done"
+      
