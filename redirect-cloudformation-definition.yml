@@ -33,7 +33,7 @@ Resources:
     Properties:
       HostedZoneId: Z1045406BOC52TC75Q5N
       Name: ira.gramm.es
-      Type: CNAME
+      Type: A
       TTL: 3600 # seconds, 3600s = 1h
       ResourceRecords:
         - public-ira-downloads.s3.eu-central-1.amazonaws.com
