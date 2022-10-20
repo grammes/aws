@@ -46,8 +46,8 @@ Resources:
       Type: MX
       TTL: 3600 # seconds, 3600s = 1h
       ResourceRecords:
-        - "10 mx1.improvmx.com."
-        - "20 mx2.improvmx.com."
+        - '10 mx1.improvmx.com.'
+        - '20 mx2.improvmx.com.'
 
   ReduceSpam:
     Type: AWS::Route53::RecordSet
@@ -57,4 +57,4 @@ Resources:
       Type: TXT
       TTL: 3600 # seconds, 3600s = 1h
       ResourceRecords:
-        - "v=spf1 -all"
+        - '"v=spf1 -all"'
