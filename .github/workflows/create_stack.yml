@@ -20,7 +20,7 @@ jobs:
       env-name: ${{ steps.env-name.outputs.environment }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Configure AWS credentials
       id: creds
@@ -33,7 +33,7 @@ jobs:
     - name: Deploy to AWS CloudFormation
       id: cloudformation-stack
       # https://github.com/aws-actions/aws-cloudformation-github-deploy/blob/master/action.yml
-      uses: aws-actions/aws-cloudformation-github-deploy@v1
+      uses: aws-actions/aws-cloudformation-github-deploy@v1.0.3
       with:
         name: deploy-redirect-cloudformation-definition
         template: redirect-cloudformation-definition.yml
